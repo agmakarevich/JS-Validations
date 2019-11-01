@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>BGUIR FORM TASK - Figma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form class="content" id="mainForm">
+    <h1>оставьте свой отзыв</h1>
+    <h2>помогите нашим отелям стать лучше! оставьте отзыв о них, а также о посещенных вами достопримечательностях</h2>
+    <div class="flex">
+        <div class="flex-w-50 feel">
+            <h4>ваше обшее впечатление:</h4>
+            <label for="feel-5">
+                <meter min="0" low="40" high="100" max="100" value="100"></meter>
+                <input id="feel-5" type="radio" name="radio1" value="Идеально" checked>
+                Идеально
+            </label>
+            <label for="feel-4">
+                <meter min="0" low="40" high="100" max="100" value="75"></meter>
+                <input id="feel-4" type="radio" name="radio1" value="Скорее положительное">
+                Скорее положительное
+            </label>
+            <label for="feel-3">
+                <meter min="0" low="50" high="100" max="100" value="49"></meter>
+                <input id="feel-3" type="radio" name="radio1" value="Нейтрально">
+                Нейтрально
+            </label>
+            <label for="feel-2">
+                <meter min="0" low="30" high="100" max="100" value="25"></meter>
+                <input id="feel-2" type="radio" name="radio1" value="Скорее отрицательное">
+                Скорее отрицательное
+            </label>
+            <label for="feel-1">
+                <meter value="0"></meter>
+                <input id="feel-1" type="radio" name="radio1" value="Негативно">
+                Негативно
+            </label>
+            <label for="feel-0">
+                <meter value="0" style="visibility: hidden"></meter>
+                <input id="feel-0" type="radio" name="radio1" value="Затрудняюсь ответить">
+                Затрудняюсь ответить
+            </label>
+        </div>
+        <div class="flex-w-50 text">
+            <h4>представьтесь</h4>
+            <label>
+                <span>имя*:</span>
+                <input type="text" required name="name">
+                <span class="input-err">поле не заполнено</span>
+            </label>
+            <label>
+                <span>фамилия*:</span>
+                <input type="text" required name="lastName">
+                <span class="input-err">поле не заполнено</span>
+            </label>
+            <label>
+                <span>отчество*:</span>
+                <input type="text" required name="fatherName">
+                <span class="input-err">поле не заполнено</span>
+            </label>
+        </div>
+    </div>
+    <h4>контактная информация:</h4>
+    <div class="flex">
+        <div class="flex-w-50">
+            <label class="input-text input-tel flex">
+                <span class="input-text-text">телефон*:</span>
+                <span class="input-text-field">
+                    <input type="text" name="phone" required value="" placeholder="введите телефон">
+                    <span class="input-err">поле не заполнено</span>
+                </span>
+            </label>
+        </div>
+        <div class="flex-w-50">
+            <label class="input-text input-mail flex">
+                <span class="input-text-text">электронная почта</span>
+                <span class="input-text-field">
+                    <input type="text" name="email" value="" required placeholder="введите E-MAIL">
+                    <span class="input-err">поле не заполнено</span>
+                </span>
+            </label>
+        </div>
+    </div>
+    <h4>детали поездки</h4>
+    <div class="flex">
+        <div class="flex-w-33">
+            <label>
+                Даты поездки
+                <input type="date" name="date" required value="">
+                <span class="input-err">поле не заполнено</span>
+            </label>
+        </div>
+        <div class="flex-w-33">
+            <label>
+                <select required name="country">
+                    <option value="" selected disabled>Выберите</option>
+                    <option value="bel">Беларусь</option>
+                    <option value="atl">Италия</option>
+                    <option value="est">Эстония</option>
+                </select>
+                <span class="input-err">поле не заполнено</span>
+
+            </label>
+        </div>
+        <div class="flex-w-33">
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="place1" value="Гора лысая" checked>
+                    Гора лысая
+                </label>
+                <label>
+                    <input type="checkbox" name="place2" value="Национальная библиотека" checked>
+                    Национальная библиотека
+                </label>
+                <label>
+                    <input type="checkbox" name="place3" value="Гродненский зоопарк">
+                    Гродненский зоопарк
+                </label>
+            </div>
+        </div>
+    </div>
+    <h4>оцените качество услуг гида</h4>
+    <div class="ocenka-title">На родном языке</div>
+    <div class="ocenka">
+        <div class="ocenka-title"></div>
+        <div class="flex">
+            <label class="ocenka-checkbox">
+                <input type="checkbox" name="originalLanguage" onchange="showRange(this)" value="" checked>
+                <span>Не пользовались</span>
+            </label>
+            <label class="ocenka-value">
+                <input type="range" name="originalLanguageValue" id="originalLanguageRange"
+                       onchange="changeOrLangVal()">
+                <span id="originalLanguageValue"></span>
+            </label>
+        </div>
+        <div class="ocenka-title">На языке посещенной страны</div>
+        <div class="flex">
+            <label class="ocenka-checkbox">
+                <input type="checkbox" name="otherLanguage" onchange="showRange(this)" value="">
+                <span>Не пользовались</span>
+            </label>
+            <label class="ocenka-value">
+                <input type="range" name="otherLanguageValue" id="otherLanguageRange" onchange="changeOtherLangVal()">
+                <span id="otherLanguageValue"></span>
+            </label>
+
+        </div>
+    </div>
+    <h4>галерея:</h4>
+    <input type="file" name="attach" value="">
+    <span>kartinka</span>
+    <h4>опишите свои эмоции:</h4>
+    <label>
+        <textarea name="emotions" required rows="8" cols="80"></textarea>
+        <span class="input-err">поле не заполнено</span>
+    </label>
+    <div class="send">
+        <a href="#" onclick="sendForm();return false;">отправить отзыв</a>
+    </div>
+</form>
+<div class="modal modal-error" id="modalError" style="display: none">
+    <h4>Ошибки!</h4>
+    <p>В форме есть ошибки!</p>
+    <p><a href="#" onclick="hideError();return false;">OK</a></p>
+</div>
+<div class="modal modal-ok" id="modalOk" style="display: none">
+    <h4>Спасибо,<span id="modalName"></span> <br/>ваш отзыв отправле!</h4>
+    <h4>Сумарная информация</h4>
+    <div class="modal-text">
+        <p>Контакты: <span id="modalContacts"></span></p>
+        <p>Даты поездки: <span id="modalDates"></span></p>
+        <p>Достопремечательности: <span id="modalDost"></span></p>
+        <p>Оценка гида: <span id="modalOcenka"></span></p>
+        <p>Эмоции от поездки: <span id="modalEmotions"></span></p>
+    </div>
+    <p><a href="#" onclick="hideOk();return false;">OK</a></p>
+</div>
+<script>
+
+  function sendForm() {
+    let form = document.getElementById('mainForm');
+    let errors = false;
+    let formData = {};
+    for (let i = 0; i < form.elements.length; i++) {
+      let element = form.elements[i];
+      if (element.required) {
+        if (element.value) {
+          element.classList.remove('invalid');
+          formData[element.name] = element.value;
+        } else {
+          element.classList.add('invalid');
+          errors = true;
+        }
+      } else {
+        if (element.type === 'checkbox' && element.checked || element.type !== 'checkbox' && element.value) {
+          formData[element.name] = element.value || element.checked;
+        }
+      }
+    }
+    if (errors) {
+      showError()
+    } else {
+      showOk(formData);
+    }
+  }
+
+  function showOk(formData) {
+    let modalName = document.getElementById('modalName');
+    let modalContacts = document.getElementById('modalContacts');
+    let modalDates = document.getElementById('modalDates');
+    let modalDost = document.getElementById('modalDost');
+    let modalOcenka = document.getElementById('modalOcenka');
+    let modalEmotions = document.getElementById('modalEmotions');
+    modalName.innerHTML = `${formData.lastName} ${formData.name} ${formData.fatherName}`;
+    modalContacts.innerHTML = `tel:${formData.phone}, email:${formData.email}`;
+    modalDates.innerHTML = `${formData.date}`;
+    let paces = [];
+    formData.place1 && paces.push(formData.place1);
+    formData.place2 && paces.push(formData.place2);
+    formData.place3 && paces.push(formData.place3);
+    modalDost.innerHTML = `${paces.join(', ')}`;
+    modalOcenka.innerHTML = `${formData.originalLanguage && formData.otherLanguage ? `<br/>` : ''}${formData.originalLanguage ? `Origin Leng:${formData.originalLanguageValue}` : ''} ${formData.originalLanguage && formData.otherLanguage ? `<br/>` : ''} ${formData.otherLanguage ? `Other Leng:${formData.otherLanguageValue}` : ''}`;
+    modalEmotions.innerHTML = `${formData.emotions}`;
+
+    let form = document.getElementById('mainForm');
+    let modal = document.getElementById('modalOk');
+    modal.style.display = 'block';
+    form.style.visibility = 'hidden';
+  }
+
+  function hideOk() {
+    let form = document.getElementById('mainForm');
+    let modal = document.getElementById('modalOk');
+    modal.style.display = 'none';
+    form.style.visibility = 'visible';
+  }
+
+  function showError() {
+    let form = document.getElementById('mainForm');
+    let errorModal = document.getElementById('modalError');
+    errorModal.style.display = 'block';
+    form.style.visibility = 'hidden';
+  }
+
+  function hideError() {
+    let form = document.getElementById('mainForm');
+    let errorModal = document.getElementById('modalError');
+    errorModal.style.display = 'none';
+    form.style.visibility = 'visible';
+  }
+
+  function showRange(el) {
+    let range = el.parentElement.nextElementSibling;
+    if (range) {
+      range.style.display = el.checked ? 'block' : 'none';
+      changeOrLangVal();
+      changeOtherLangVal();
+    }
+  }
+
+  function changeOrLangVal() {
+    let r = document.getElementById('originalLanguageRange');
+    let v = document.getElementById('originalLanguageValue');
+    v.innerHTML = r.value;
+  }
+
+  function changeOtherLangVal() {
+    let r = document.getElementById('otherLanguageRange');
+    let v = document.getElementById('otherLanguageValue');
+    v.innerHTML = r.value;
+  }
+
+  let ranges = document.querySelectorAll('.ocenka-checkbox input');
+  for (let i = 0; i < ranges.length; i++) showRange(ranges[i]);
+
+  changeOrLangVal();
+  changeOtherLangVal();
+</script>
+</body>
+</html>
